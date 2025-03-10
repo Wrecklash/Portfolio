@@ -23,28 +23,35 @@ const articles: ArticlePost[] = [
   {
     title: "Unbundling: ShareChat's Path to Sustainable Growth",
     description: "This piece explores ShareChat's monetization challenges and opportunities, highlighting microtransactions and category-specific unbundling as key strategies. It examines India's digital economy, user behavior in Tier 2/3 cities, and successful revenue models.",
-    date: "March 2024",
+    date: "March 2025",
     link: "https://www.canva.com/design/DAF1_slgyZ8/3TdHi_cuhCdmPLKIruxzcQ/view",
     tags: ["Monetization ", "Social Media", "Bharat", "Microtransactions"]
   },
   {
     title: "NBA Fan Engagement: OTT Features",
     description: "An analysis of how NBA can enhance fan engagement through OTT platforms, exploring innovative features, personalized content delivery, and interactive viewing experiences to drive deeper fan connection and monetization opportunities.",
-    date: "March 2024",
+    date: "January 2025",
     link: "https://docs.google.com/document/d/17dyViorIc35OBEWDRQu1ySGMNLWWUVWpWRVbsrw-SfY/edit?usp=sharing",
     tags: ["Sports Tech", "OTT", "Fan Engagement", "NBA"]
   },
   {
+    title: "India's Second-hand and Unbranded Market",
+    description: "A comprehensive analysis of India's growing second-hand and unbranded market, examining consumer behavior, market dynamics, sustainability impact, and business opportunities in this rapidly evolving sector.",
+    date: "November 2024",
+    link: "https://docs.google.com/document/d/1-4GZLwq9F7yP-5D_5AyPB4hk_ySmL8CV-r9sdz7tMnM/edit?usp=sharing",
+    tags: ["Retail", "Sustainability", "Indian Market", "Consumer Behavior"]
+  },
+  {
     title: "MailChimp - SMS feature",
     description: "An analysis of MailChimp's SMS marketing capabilities, exploring integration possibilities, customer segmentation strategies, and best practices for effective SMS campaigns within the MailChimp ecosystem.",
-    date: "March 2024",
+    date: "September 2024",
     link: "https://docs.google.com/document/d/1BYYuHCWCR2bOFY3qUoQgoXw5JVqfL4M85VtKsNvCcPM/edit?usp=sharing",
     tags: ["Marketing", "SMS", "MailChimp", "Campaign Management"]
   },
   {
     title: "Should Fivetran introduce real-time ingestion?",
     description: "An analysis of real-time data ingestion capabilities in Fivetran, exploring the technical challenges, business value, competitive landscape, and potential implementation strategies for real-time ETL solutions.",
-    date: "March 2024",
+    date: "July 2024",
     link: "https://docs.google.com/document/d/1KM0v2wE4uXQw1b68G29dFZjJRguPJXIfpCv9ORhUhYU/edit?usp=sharing",
     tags: ["Data Engineering", "ETL", "Real-time Data", "Fivetran"]
   }
