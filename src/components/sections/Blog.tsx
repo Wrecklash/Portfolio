@@ -21,9 +21,16 @@ interface BlogPost {
  */
 const blogPosts: BlogPost[] = [
   {
+    title: "Should Fivetran introduce real-time ingestion?",
+    description: "An analysis of real-time data ingestion capabilities in Fivetran, exploring the technical challenges, business value, and potential implementation strategies.",
+    date: "March 2024",
+    link: "https://docs.google.com/document/d/1KM0v2wE4uXQw1b68G29dFZjJRguPJXIfpCv9ORhUhYU/edit?usp=sharing",
+    tags: ["Data Engineering", "ETL", "Real-time Data", "Fivetran"]
+  },
+  {
     title: "Building Data-Driven Products: A Product Manager's Guide",
     description: "A comprehensive guide on how to leverage data analytics in product development and decision making.",
-    date: "March 2024",
+    date: "February 2024",
     link: "#",
     tags: ["Product Management", "Data Analytics", "Decision Making"]
   },
