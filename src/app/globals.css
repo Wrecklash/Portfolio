@@ -1,0 +1,334 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Base styles */
+:root {
+  /* Core colors */
+  --primary: 23, 37, 84;        /* Neutral-900: For main text */
+  --secondary: 71, 85, 105;     /* Slate-600: For secondary text */
+  --accent: 37, 99, 235;        /* Blue-600: For links and highlights */
+  
+  /* Background colors */
+  --bg-main: 255, 255, 255;     /* Pure white background */
+  --bg-soft: 248, 250, 252;     /* Slate-50: Very subtle gray for sections */
+  
+  /* Border colors */
+  --border: 226, 232, 240;      /* Slate-200: Subtle borders */
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--primary));
+  background: rgb(var(--bg-main));
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Component classes */
+@layer components {
+  .section {
+    @apply py-16;
+  }
+
+  .container {
+    @apply max-w-3xl mx-auto px-4 sm:px-6;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-8 text-[rgb(var(--primary))];
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-lg border border-[rgb(var(--border))]
+           p-6 mb-4 last:mb-0
+           hover:shadow-sm
+           transition-all duration-200;
+  }
+
+  /* Typography */
+  .heading-1 {
+    @apply text-4xl font-bold text-[rgb(var(--primary))];
+  }
+
+  .heading-2 {
+    @apply text-3xl font-bold text-[rgb(var(--primary))];
+  }
+
+  .heading-3 {
+    @apply text-xl font-semibold text-[rgb(var(--primary))];
+  }
+
+  .body-large {
+    @apply text-lg text-[rgb(var(--secondary))];
+  }
+
+  .body-regular {
+    @apply text-base text-[rgb(var(--secondary))];
+  }
+
+  .body-small {
+    @apply text-sm text-[rgb(var(--secondary))];
+  }
+
+  /* Links */
+  .link {
+    @apply text-[rgb(var(--accent))] hover:underline
+           transition-colors duration-200;
+  }
+
+  /* List styles */
+  .bullet-list {
+    @apply space-y-2;
+  }
+
+  .bullet-item {
+    @apply flex items-start gap-2;
+  }
+
+  .bullet-point {
+    @apply w-1.5 h-1.5 mt-2 rounded-full bg-[rgb(var(--accent))] flex-shrink-0;
+  }
+
+  /* Tags */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-sm
+           bg-[rgb(var(--bg-soft))] text-[rgb(var(--secondary))]
+           border border-[rgb(var(--border))]
+           mr-2 mb-2;
+  }
+
+  /* Contact links */
+  .contact-link {
+    @apply flex items-center gap-2 
+           text-[rgb(var(--secondary))]
+           hover:text-[rgb(var(--accent))]
+           transition-colors duration-200;
+  }
+}
+
+/* Simple fade animation */
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--primary)),
+      rgb(var(--accent))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--primary)),
+      rgb(var(--primary-dark))
+    );
+  }
+
+  .bg-gradient-accent {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-dark))
+    );
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(
+      to right,
+      rgba(var(--primary), 0.2),
+      rgba(var(--accent), 0.2)
+    ) 1;
+  }
+
+  .premium-border {
+    @apply border border-[rgba(var(--accent),0.2)] hover:border-[rgba(var(--accent),0.5)];
+  }
+
+  .premium-card {
+    @apply bg-[rgba(var(--surface),0.5)] backdrop-blur-md rounded-lg
+           shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+           hover:shadow-[0_8px_30px_rgba(var(--accent),0.1)]
+           transition-all duration-300;
+  }
+
+  .premium-button {
+    @apply bg-[rgb(var(--primary))] text-white
+           hover:bg-[rgb(var(--primary-dark))]
+           px-6 py-3 rounded-lg font-medium
+           shadow-sm
+           hover:shadow
+           transition-all duration-300;
+  }
+
+  .premium-input {
+    @apply bg-[rgba(var(--surface),0.3)] border border-[rgba(var(--accent),0.1)]
+           focus:border-[rgba(var(--accent),0.5)] rounded-lg px-4 py-2
+           text-[rgb(var(--text-primary))] placeholder-[rgb(var(--text-secondary))]
+           outline-none transition-all duration-300;
+  }
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply bg-white/80 backdrop-blur-sm
+         border border-slate-200
+         hover:border-slate-300
+         shadow-sm
+         hover:shadow
+         transition-all duration-300;
+}
+
+.glass-card {
+  @apply bg-white rounded-lg
+         border border-slate-200
+         hover:border-slate-300
+         shadow-sm
+         hover:shadow
+         transition-all duration-300;
+}
+
+/* Timeline styles */
+.timeline-item {
+  @apply relative pl-8 pb-12 border-l border-slate-200 last:pb-0;
+}
+
+.timeline-dot {
+  @apply absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-[rgb(var(--primary))];
+}
+
+.timeline-date {
+  @apply text-sm text-[rgb(var(--text-secondary))] mb-1;
+}
+
+.timeline-title {
+  @apply text-xl font-semibold text-[rgb(var(--text-primary))] mb-2;
+}
+
+.timeline-subtitle {
+  @apply text-lg text-[rgb(var(--accent))] mb-4;
+}
+
+/* Card styles */
+.experience-card, .education-card, .publication-card, .blog-card {
+  @apply bg-white rounded-lg border border-slate-100
+         p-6 mb-4 last:mb-0
+         hover:border-slate-200
+         shadow-sm hover:shadow
+         transition-all duration-300;
+}
+
+.experience-title {
+  @apply text-2xl font-semibold text-[rgb(var(--primary))] mb-1;
+}
+
+.experience-company {
+  @apply text-lg text-[rgb(var(--accent))] mb-2;
+}
+
+.experience-period {
+  @apply text-sm text-[rgb(var(--text-secondary))] mb-4;
+}
+
+.experience-description {
+  @apply text-[rgb(var(--text-secondary))] mb-4;
+}
+
+/* List styles */
+.achievement-list {
+  @apply space-y-4;
+}
+
+.achievement-item {
+  @apply flex items-start space-x-3 text-[rgb(var(--text-secondary))];
+}
+
+.achievement-bullet {
+  @apply w-1.5 h-1.5 mt-2 rounded-full bg-[rgb(var(--accent))] flex-shrink-0;
+}
+
+/* Button styles */
+.primary-button {
+  @apply bg-[rgb(var(--primary))] text-white
+         hover:bg-[rgb(var(--primary-dark))]
+         px-6 py-3 rounded-lg font-medium
+         shadow-sm hover:shadow
+         transition-all duration-300;
+}
+
+.secondary-button {
+  @apply bg-white text-[rgb(var(--primary))]
+         hover:bg-slate-50
+         px-6 py-3 rounded-lg font-medium
+         border border-slate-200
+         hover:border-slate-300
+         shadow-sm hover:shadow
+         transition-all duration-300;
+}
+
+/* Publication styles */
+.publication-title {
+  @apply text-xl font-semibold text-[rgb(var(--primary))] mb-2;
+}
+
+.publication-journal {
+  @apply text-[rgb(var(--text-secondary))] mb-2;
+}
+
+.publication-year {
+  @apply text-sm text-[rgb(var(--text-secondary))] mb-4;
+}
+
+/* Education styles */
+.education-title {
+  @apply text-xl font-semibold text-[rgb(var(--primary))] mb-1;
+}
+
+.education-school {
+  @apply text-lg text-[rgb(var(--accent))] mb-2;
+}
+
+.education-period {
+  @apply text-sm text-[rgb(var(--text-secondary))] mb-4;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 
