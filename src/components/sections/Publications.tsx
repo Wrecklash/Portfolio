@@ -14,12 +14,12 @@ interface Publication {
 
 const publications: Publication[] = [
   {
-    title: "Detecting depressions in social media posts using neural networks",
+    title: "Detecting Depression in Social Media Posts Using Machine Learning",
     authors: "Part of the Communications in Computer and Information Science book series",
     conference: "Springer",
     year: "2019",
     citations: "24 Citations",
-    link: "CCIS, volume 1037"
+    link: "https://rd.springer.com/chapter/10.1007/978-981-13-9187-3_64"
   }
 ];
 
@@ -89,7 +89,7 @@ const Publications = () => {
                   
                   {pub.link && (
                     <a 
-                      href={`https://doi.org/${pub.link}`}
+                      href={pub.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="link inline-flex items-center"

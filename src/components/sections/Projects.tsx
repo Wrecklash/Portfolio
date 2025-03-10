@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface ProjectItem {
   title: string;
@@ -32,56 +32,80 @@ const projects: ProjectItem[] = [
   }
 ];
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 }
+};
+
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="section-container">
-        <h2 className="section-title">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="section bg-[rgb(var(--bg-soft))]" id="projects">
+      <div className="container">
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Featured Projects
+        </motion.h2>
+
+        <motion.div
+          className="grid grid-cols-1 gap-6"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="card group hover:border-primary-blue"
+              className="card hover:border-[rgb(var(--accent))]"
+              variants={item}
             >
-              {project.image && (
-                <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
+              <div className="space-y-4">
+                <h3 className="heading-3">
+                  {project.title}
+                </h3>
+                <p className="body-regular">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 text-sm bg-[rgb(var(--bg-soft))] text-[rgb(var(--accent))] rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              )}
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 text-sm bg-light-blue text-primary-blue dark:bg-gray-800 dark:text-blue-400 rounded-full"
+                {project.link && (
+                  <a
+                    href={project.link}
+                    className="link inline-flex items-center"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {tech}
-                  </span>
-                ))}
+                    View Project
+                    <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                )}
               </div>
-              {project.link && (
-                <a
-                  href={project.link}
-                  className="text-primary-blue hover:text-secondary-blue dark:text-blue-400 dark:hover:text-blue-300 font-medium"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Learn more →
-                </a>
-              )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
