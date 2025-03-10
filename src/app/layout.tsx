@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from "next/font/google";
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
 import '@/app/globals.css';
+import ClientLayout from '@/components/ClientLayout';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,25 +14,15 @@ export const metadata: Metadata = {
   description: 'Product Manager with 6 years of experience in building and scaling products.',
 };
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
-
-/**
- * Root layout component
- * Wraps all pages with common elements like fonts, navigation, and theme
- */
 export default function RootLayout({
   children,
-}: RootLayoutProps): React.ReactElement {
+}: {
+  children: React.ReactNode;
+}): React.ReactElement {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-[rgb(var(--bg-main))]`}>
-        <Navbar />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
-        <Footer />
+    <html lang="en">
+      <body className={inter.className}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

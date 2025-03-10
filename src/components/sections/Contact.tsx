@@ -38,10 +38,10 @@ const Contact = () => {
 
             <div className="flex items-center space-x-3">
               <svg
-                className="w-6 h-6 text-[rgb(var(--accent))]"
+                className="h-6 w-6"
                 fill="none"
-                stroke="currentColor"
                 viewBox="0 0 24 24"
+                stroke="currentColor"
               >
                 <path
                   strokeLinecap="round"

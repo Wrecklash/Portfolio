@@ -17,6 +17,21 @@
   --border: 226, 232, 240;      /* Slate-200: Subtle borders */
 }
 
+/* Dark mode variables */
+.dark {
+  /* Core colors */
+  --primary: 248, 250, 252;     /* Slate-50: For main text in dark mode */
+  --secondary: 203, 213, 225;   /* Slate-300: For secondary text in dark mode */
+  --accent: 59, 130, 246;       /* Blue-500: For links and highlights in dark mode */
+  
+  /* Background colors */
+  --bg-main: 15, 23, 42;        /* Slate-900: Dark background */
+  --bg-soft: 30, 41, 59;        /* Slate-800: Slightly lighter sections */
+  
+  /* Border colors */
+  --border: 51, 65, 85;         /* Slate-700: Subtle borders in dark mode */
+}
+
 /* Global styles */
 html {
   scroll-behavior: smooth;
@@ -45,9 +60,9 @@ body {
 
   /* Card base */
   .card {
-    @apply bg-white rounded-lg border border-[rgb(var(--border))]
+    @apply bg-white dark:bg-gray-800 rounded-lg border border-[rgb(var(--border))]
            p-6 mb-4 last:mb-0
-           hover:shadow-sm
+           hover:shadow-sm dark:hover:shadow-blue-500/5
            transition-all duration-200;
   }
 
@@ -110,110 +125,49 @@ body {
            hover:text-[rgb(var(--accent))]
            transition-colors duration-200;
   }
-}
 
-/* Simple fade animation */
-.fade-in {
-  animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Utility classes */
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .text-gradient {
-    background: linear-gradient(
-      135deg,
-      rgb(var(--primary)),
-      rgb(var(--accent))
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
-    animation: gradient 8s ease infinite;
-  }
-
-  .bg-gradient-primary {
-    background: linear-gradient(
-      135deg,
-      rgb(var(--primary)),
-      rgb(var(--primary-dark))
-    );
-  }
-
-  .bg-gradient-accent {
-    background: linear-gradient(
-      135deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-dark))
-    );
-  }
-
-  .border-gradient {
-    border-image: linear-gradient(
-      to right,
-      rgba(var(--primary), 0.2),
-      rgba(var(--accent), 0.2)
-    ) 1;
-  }
-
-  .premium-border {
-    @apply border border-[rgba(var(--accent),0.2)] hover:border-[rgba(var(--accent),0.5)];
-  }
-
-  .premium-card {
-    @apply bg-[rgba(var(--surface),0.5)] backdrop-blur-md rounded-lg
-           shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-           hover:shadow-[0_8px_30px_rgba(var(--accent),0.1)]
+  /* Card styles */
+  .experience-card, .education-card, .publication-card, .blog-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg border border-slate-100 dark:border-gray-700
+           p-4 sm:p-6 mb-4 last:mb-0
+           hover:border-slate-200 dark:hover:border-gray-600
+           shadow-sm hover:shadow dark:shadow-gray-900/10 dark:hover:shadow-blue-500/5
            transition-all duration-300;
   }
 
-  .premium-button {
-    @apply bg-[rgb(var(--primary))] text-white
-           hover:bg-[rgb(var(--primary-dark))]
-           px-6 py-3 rounded-lg font-medium
-           shadow-sm
-           hover:shadow
-           transition-all duration-300;
+  .experience-title {
+    @apply text-xl sm:text-2xl font-semibold text-[rgb(var(--primary))] mb-1;
   }
 
-  .premium-input {
-    @apply bg-[rgba(var(--surface),0.3)] border border-[rgba(var(--accent),0.1)]
-           focus:border-[rgba(var(--accent),0.5)] rounded-lg px-4 py-2
-           text-[rgb(var(--text-primary))] placeholder-[rgb(var(--text-secondary))]
-           outline-none transition-all duration-300;
+  .experience-company {
+    @apply text-base sm:text-lg font-medium text-[rgb(var(--accent))];
+  }
+
+  .experience-period {
+    @apply text-xs sm:text-sm text-[rgb(var(--secondary))] mb-3;
+  }
+
+  .experience-description {
+    @apply text-sm sm:text-base text-[rgb(var(--secondary))];
   }
 }
 
 /* Glass effect */
 .glass-effect {
-  @apply bg-white/80 backdrop-blur-sm
-         border border-slate-200
-         hover:border-slate-300
-         shadow-sm
-         hover:shadow
+  @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm
+         border border-slate-200 dark:border-gray-700
+         hover:border-slate-300 dark:hover:border-gray-600
+         shadow-sm dark:shadow-gray-900/20
          transition-all duration-300;
 }
 
 .glass-card {
-  @apply bg-white rounded-lg
-         border border-slate-200
-         hover:border-slate-300
-         shadow-sm
-         hover:shadow
+  @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-md
+         rounded-lg border border-slate-200/80 dark:border-gray-700/80
+         p-6 
+         hover:bg-white/90 dark:hover:bg-gray-800/90
+         hover:border-slate-300 dark:hover:border-gray-600
+         shadow-sm hover:shadow dark:shadow-gray-900/10
          transition-all duration-300;
 }
 
@@ -227,49 +181,24 @@ body {
 }
 
 .timeline-date {
-  @apply text-sm text-[rgb(var(--text-secondary))] mb-1;
+  @apply text-sm text-[rgb(var(--secondary))] mb-1;
 }
 
 .timeline-title {
-  @apply text-xl font-semibold text-[rgb(var(--text-primary))] mb-2;
+  @apply text-xl font-semibold text-[rgb(var(--primary))] mb-2;
 }
 
 .timeline-subtitle {
   @apply text-lg text-[rgb(var(--accent))] mb-4;
 }
 
-/* Card styles */
-.experience-card, .education-card, .publication-card, .blog-card {
-  @apply bg-white rounded-lg border border-slate-100
-         p-6 mb-4 last:mb-0
-         hover:border-slate-200
-         shadow-sm hover:shadow
-         transition-all duration-300;
-}
-
-.experience-title {
-  @apply text-2xl font-semibold text-[rgb(var(--primary))] mb-1;
-}
-
-.experience-company {
-  @apply text-lg text-[rgb(var(--accent))] mb-2;
-}
-
-.experience-period {
-  @apply text-sm text-[rgb(var(--text-secondary))] mb-4;
-}
-
-.experience-description {
-  @apply text-[rgb(var(--text-secondary))] mb-4;
-}
-
 /* List styles */
 .achievement-list {
-  @apply space-y-4;
+  @apply space-y-3 sm:space-y-4;
 }
 
 .achievement-item {
-  @apply flex items-start space-x-3 text-[rgb(var(--text-secondary))];
+  @apply flex items-start space-x-2 sm:space-x-3 text-[rgb(var(--secondary))] text-sm sm:text-base;
 }
 
 .achievement-bullet {
@@ -278,20 +207,19 @@ body {
 
 /* Button styles */
 .primary-button {
-  @apply bg-[rgb(var(--primary))] text-white
-         hover:bg-[rgb(var(--primary-dark))]
+  @apply bg-[rgb(var(--primary))] dark:bg-blue-600 text-white
+         hover:bg-[rgb(var(--primary-dark))] dark:hover:bg-blue-700
          px-6 py-3 rounded-lg font-medium
-         shadow-sm hover:shadow
+         shadow-sm hover:shadow dark:shadow-blue-500/20
          transition-all duration-300;
 }
 
 .secondary-button {
-  @apply bg-white text-[rgb(var(--primary))]
-         hover:bg-slate-50
+  @apply bg-white dark:bg-gray-800 text-[rgb(var(--primary))] dark:text-white
+         hover:bg-slate-50 dark:hover:bg-gray-700
          px-6 py-3 rounded-lg font-medium
-         border border-slate-200
-         hover:border-slate-300
-         shadow-sm hover:shadow
+         border border-[rgb(var(--border))]
+         shadow-sm hover:shadow dark:shadow-blue-500/10
          transition-all duration-300;
 }
 
@@ -301,11 +229,11 @@ body {
 }
 
 .publication-journal {
-  @apply text-[rgb(var(--text-secondary))] mb-2;
+  @apply text-[rgb(var(--secondary))] mb-2;
 }
 
 .publication-year {
-  @apply text-sm text-[rgb(var(--text-secondary))] mb-4;
+  @apply text-sm text-[rgb(var(--secondary))] mb-4;
 }
 
 /* Education styles */
@@ -318,19 +246,7 @@ body {
 }
 
 .education-period {
-  @apply text-sm text-[rgb(var(--text-secondary))] mb-4;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  @apply text-sm text-[rgb(var(--secondary))] mb-4;
 }
 
 /* Hide scrollbar but keep functionality */
