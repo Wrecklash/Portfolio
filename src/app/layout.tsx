@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import "./globals.css";
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import '@/app/globals.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,9 +11,13 @@ const inter = Inter({ subsets: ["latin"] });
  * This information is used for SEO and browser tab display
  */
 export const metadata: Metadata = {
-  title: "Abhilash Biradar - Product Manager & Tech Leader",
-  description: "Product Manager with 6 years of experience in product and data roles, focusing on consumer internet products in social and finance sectors.",
+  title: 'Abhilash Biradar - Product Manager',
+  description: 'Product Manager with 6 years of experience in building and scaling products.',
 };
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
 
 /**
  * Root layout component
@@ -21,9 +25,7 @@ export const metadata: Metadata = {
  */
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: RootLayoutProps): React.ReactElement {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-[rgb(var(--bg-main))]`}>

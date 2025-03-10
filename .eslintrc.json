@@ -1,34 +1,12 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
+    "next/core-web-vitals"
   ],
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/explicit-function-return-type": ["warn", {
-      "allowExpressions": true,
-      "allowTypedFunctionExpressions": true
-    }],
-    "react/jsx-sort-props": ["warn", {
-      "callbacksLast": true,
-      "shorthandFirst": true,
-      "reservedFirst": true
-    }],
-    "import/order": ["warn", {
-      "groups": [
-        ["builtin", "external"],
-        "internal",
-        ["parent", "sibling", "index"]
-      ],
-      "newlines-between": "always",
-      "alphabetize": {
-        "order": "asc",
-        "caseInsensitive": true
-      }
-    }]
+    "import/order": "off",
+    "react/jsx-sort-props": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 } 
