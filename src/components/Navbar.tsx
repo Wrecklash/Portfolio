@@ -16,10 +16,10 @@ interface NavItem {
  */
 const navigation: NavItem[] = [
   { name: 'About', href: '#about' },
+  { name: 'Articles', href: '#articles' },
   { name: 'Experience', href: '#experience' },
   { name: 'Education', href: '#education' },
   { name: 'Publications', href: '#publications' },
-  { name: 'Blog', href: '#blog' },
 ];
 
 /**

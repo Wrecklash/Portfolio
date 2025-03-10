@@ -1,9 +1,8 @@
-import Blog from '@/components/sections/Blog';
+import Articles from '@/components/sections/Articles';
 import Contact from '@/components/sections/Contact';
 import Education from '@/components/sections/Education';
 import Experience from '@/components/sections/Experience';
 import Hero from '@/components/sections/Hero';
-import Projects from '@/components/sections/Projects';
 import Publications from '@/components/sections/Publications';
 
 /**
@@ -15,11 +14,10 @@ export default function Home(): React.ReactElement {
   return (
     <>
       <Hero />
+      <Articles />
       <Experience />
       <Education />
       <Publications />
-      <Projects />
-      <Blog />
       <Contact />
     </>
   );
